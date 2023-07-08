@@ -88,13 +88,21 @@ function seleccionarFila(index) {
   // Obtiene el elemento de la fila correspondiente
   var filaElement = document.getElementById(`fila-${index}`);
 
+  // Agrega o elimina la clase "completed" según el estado de completada
+  filaElement.classList.toggle("completed", fila.completada);
   // Agrega o elimina la clase "uncompleted" según el estado de completada
   filaElement.classList.toggle("uncompleted", !fila.completada);
 }
 
 // Función para guardar el estado de las filas en el almacenamiento local
 function guardarEstadoFilas() {
-  localStorage.setItem("filas", JSON.stringify(filas));
+  var estadoFilas = filas.map(function (fila) {
+    return {
+      completada: fila.completada,
+    };
+  });
+
+  localStorage.setItem("filas", JSON.stringify(estadoFilas));
 }
 
 // Función para restaurar el estado de las filas desde el almacenamiento local
@@ -106,6 +114,17 @@ function restaurarEstadoFilas() {
 
     estadoFilasParsed.forEach(function (estadoFila, index) {
       filas[index].completada = estadoFila.completada;
+
+      var filaElement = document.getElementById(`fila-${index}`);
+      var descripcionElement = filaElement.querySelector(".descripcion");
+
+      if (!estadoFila.completada) {
+        filaElement.classList.remove("completed"); // Eliminar la clase "completed" si la fila no está completada
+        filaElement.classList.add("uncompleted"); // Agregar la clase "uncompleted" a las filas no completadas
+      } else {
+        filaElement.classList.remove("uncompleted"); // Eliminar la clase "uncompleted" si la fila está completada
+        filaElement.classList.add("completed"); // Agregar la clase "completed" a las filas completadas
+      }
     });
   } else {
     // Si no hay datos en el almacenamiento local, establecer todas las filas como completadas y guardar el estado inicial

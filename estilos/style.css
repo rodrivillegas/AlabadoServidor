@@ -58,13 +58,16 @@ h1 {
   transition: background-color 0.5s ease;
 }
 
-/* Estilo para filas seleccionadas */
-tr.uncompleted {
-  background-color: #ffcc00;
-  transition: background-color 0.3s ease;
-}
-
 /* Estilo para filas seleccionadas al hacer clic */
 tr.uncompleted:active {
-  background-color: #ffcc00;
+  background-color: rgb(250, 171, 2);
+}
+
+.uncompleted {
+  background-color: rgb(250, 171, 2);
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: red;
 }
