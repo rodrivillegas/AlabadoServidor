@@ -11,7 +11,7 @@ body {
 
 h1 {
   font-family: "Arial", sans-serif;
-  font-size: 32px; /* Aumenta el tamaño del texto para mayor impacto */
+  font-size: 3rem; /* Aumenta el tamaño del texto para mayor impacto */
   color: #333;
   text-align: center;
   margin-top: 10px; /* Aumenta el espacio superior para separarlo más */
@@ -35,6 +35,7 @@ h1 {
 #tablaDatos {
   border-collapse: collapse;
   width: 100%;
+  font-size: 1.5rem;
 }
 
 #tablaDatos th,
