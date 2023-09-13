@@ -1,8 +1,8 @@
 body {
   font-family: Roboto, Arial, sans-serif;
   padding: 20px;
-  background-image: url(../assets/fondoBlonda.png);
-  background-repeat: repeat;
+  background-image: url(../assets/logoAlabado.png);
+  background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
